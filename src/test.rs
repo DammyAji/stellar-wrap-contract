@@ -2,7 +2,7 @@
 extern crate std;
 
 use super::*;
-use crate::constants::{TOKEN_NAME, TOKEN_SYMBOL, TOKEN_DECIMALS, CONTRACT_DESCRIPTION};
+use crate::constants::{TOKEN_NAME, TOKEN_SYMBOL, TOKEN_DECIMALS, CONTRACT_DESCRIPTION, VERSION};
 use ed25519_dalek::{Signer, SigningKey};
 use soroban_sdk::{
     symbol_short,
@@ -449,7 +449,7 @@ fn test_version_returns_expected_value() {
     let contract_id = env.register_contract(None, StellarWrapContract);
     let client = StellarWrapContractClient::new(&env, &contract_id);
 
-    assert_eq!(client.version(), 1);
+    assert_eq!(client.version(), VERSION);
 }
 
 // ─── Issue #56: contract_info tests ─────────────────────────────────────────
